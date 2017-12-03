@@ -1,21 +1,21 @@
 {
-  "name": "mcp3008",
+  "name": "simple-mcp3008",
   "version": "1.0.0",
   "description": " MCP3008 SPI analog to digital conversion",
-  "main": "mcp3008.js",
+  "main": "simple-mcp3008.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toliger/mcp3008.git"
+    "url": "git+https://github.com/toliger/simple-mcp3008.git"
   },
   "author": "Oliger Timothée",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/toliger/mcp3008/issues"
+    "url": "https://github.com/toliger/simple-mcp3008/issues"
   },
-  "homepage": "https://github.com/toliger/mcp3008#readme",
+  "homepage": "https://github.com/toliger/simple-mcp3008#readme",
   "dependencies": {
     "onoff": "^1.1.8"
   }

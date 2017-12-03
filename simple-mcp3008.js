@@ -60,7 +60,7 @@ class mcp3008{
 	}
 
 	getsensorresistance(pin, cb){
-		cb(pin, getsensorresistanceSync(pin));
+		cb(pin, this.getsensorresistanceSync(pin));
 	}
 }
 module.exports = mcp3008

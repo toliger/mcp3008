@@ -1,5 +1,7 @@
 # mcp3008
 
+MCP 3008 SPI analog to digital conversion with Node.js on raspberry boards.
+
 ## Contents
 
  * [Installation](https://github.com/toliger/mcp3008#installation)
@@ -15,11 +17,14 @@ npm install mcp3008
 
 ```js
 // (SPICLK, SPIMISO, SPIMOSI, SPICS);
-var mcp = require('mcp3008')(18, 4, 24, 25);
+var mcp = require('mcp3008');
+var mymcp = new mcp(18,24,4,25);
 
-mcp.read(0, (value) => {
-	console.log(value);
-});
+for(var i = 0; i < 8; i++){
+	mymcp.read(i,(id, value) => {
+		console.log("pin #" + id + " = " + value + "/1024");
+	});
+}
 
-console.log(mcp.readSync(0));
+console.log(mymcp.readSync(0));
 ```

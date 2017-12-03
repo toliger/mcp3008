@@ -51,12 +51,16 @@ class mcp3008{
 		cb(pin, this.readSync(pin));
 	}
 
+	getVoltage(value){
+		return 3,3 * value / this.Vref;
+	}
+
 	setresistance(pin, ohm){
 		this.resistances[pin] = ohm;
 	}
 
 	getsensorresistanceSync(pin){
-		return ((this.Vref * this.resistances[pin])/this.readSync(pin)) - this.resistances[pin];
+		return ((this.Vref * this.resistances[pin])/getVoltage(this.readSync(pin))) - this.resistances[pin];
 	}
 
 	getsensorresistance(pin, cb){

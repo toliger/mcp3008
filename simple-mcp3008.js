@@ -56,7 +56,7 @@ class mcp3008{
 	}
 
 	getsensorresistanceSync(pin){
-		return ((this.Vref * this.resistances[pin])/readSync(pin)) - this.resistances[pin];
+		return ((this.Vref * this.resistances[pin])/this.readSync(pin)) - this.resistances[pin];
 	}
 
 	getsensorresistance(pin, cb){

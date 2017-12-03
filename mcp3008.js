@@ -15,7 +15,7 @@ class mcp3008{
 		this.clockpin.writeSync(0);
 		this.cspin.writeSync(0);
 
-		var commandout = adcnum;
+		var commandout = input;
 		commandout |= 0x18;
 		commandout <<= 3;
 

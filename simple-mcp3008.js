@@ -52,7 +52,8 @@ class mcp3008{
 	}
 
 	getVoltage(value){
-		return 3,3 * value / this.Vref;
+		console.log(value + "valeur get")
+		return (3,3 * value) / this.Vref;
 	}
 
 	setresistance(pin, ohm){

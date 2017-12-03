@@ -8,7 +8,7 @@ class mcp3008{
 		this.cspin			=		new Gpio(cspin,			'out'	);
 	}
 
-	read(input){
+	readSync(input){
 		if(input > 7 || input < 0){return -1}
 		this.cspin.writeSync(1);
 
@@ -43,6 +43,10 @@ class mcp3008{
 
 		res >>= 1;
 		return res;
+	}
+
+	read(pin, cb){
+		cb(pin, this.read(pin));
 	}
 
 }

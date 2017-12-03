@@ -52,7 +52,8 @@ class mcp3008{
 	}
 
 	getVoltage(value){
-		console.log(value + "valeur get")
+		console.log(value + "valeur get");
+		console.log(this.Vref * value) / 1024);
 		return (this.Vref * value) / 1024;
 	}
 

@@ -60,10 +60,6 @@ class mcp3008{
 	}
 
 	getsensorresistanceSync(pin){
-		console.log(this.getVoltage(this.readSync(pin)) + " V");
-		console.log(this.resistances[pin] + " Ohm")
-		console.log(this.Vref + " V");
-		console.log(((this.Vref * this.resistances[pin])/this.getVoltage(this.readSync(pin))) - this.resistances[pin] + "ohm")
 		return ((this.Vref * this.resistances[pin])/this.getVoltage(this.readSync(pin))) - this.resistances[pin];
 	}
 

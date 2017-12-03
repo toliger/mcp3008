@@ -46,7 +46,7 @@ class mcp3008{
 	}
 
 	read(pin, cb){
-		cb(pin, this.read(pin));
+		cb(pin, this.readSync(pin));
 	}
 
 }

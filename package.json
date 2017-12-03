@@ -2,7 +2,7 @@
   "name": "mcp3008",
   "version": "1.0.0",
   "description": " MCP3008 SPI analog to digital conversion",
-  "main": "index.js",
+  "main": "mcp3008.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

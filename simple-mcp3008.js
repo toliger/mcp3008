@@ -1,11 +1,13 @@
 var Gpio = require('onoff').Gpio;
 
 class mcp3008{
-	constructor(clockpin, mosipin, misopin, cspin){
-		this.clockpin		=		new Gpio(clockpin,	'out'	);
-		this.mosipin		=		new Gpio(mosipin,		'out'	);
-		this.misopin		=		new Gpio(misopin,		'in'	);
-		this.cspin			=		new Gpio(cspin,			'out'	);
+	constructor(clockpin, mosipin, misopin, cspin, Vref){
+		this.clockpin			=		new Gpio(clockpin,	'out'	);
+		this.mosipin			=		new Gpio(mosipin,		'out'	);
+		this.misopin			=		new Gpio(misopin,		'in'	);
+		this.cspin				=		new Gpio(cspin,			'out'	);
+		this.resistances	=		[0, 0, 0, 0, 0, 0, 0, 0];
+		this.Vref					=		Vref;
 	}
 
 	readSync(input){
@@ -49,5 +51,16 @@ class mcp3008{
 		cb(pin, this.readSync(pin));
 	}
 
+	setresistance(pin, ohm){
+		this.resistances[pin] = ohm;
+	}
+
+	getsensorresistanceSync(pin){
+		return ((this.Vref * this.resistances[pin])/readSync(pin)) - this.resistances[pin];
+	}
+
+	getsensorresistance(pin, cb){
+		cb(pin, getsensorresistanceSync(pin));
+	}
 }
 module.exports = mcp3008

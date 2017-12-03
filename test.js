@@ -1,8 +1,7 @@
 var mcp = require('./simple-mcp3008.js');
-var mymcp = new mcp(18,24,4,25);
+var mymcp = new mcp(18,24,4,25, 3.3);
 
-for(var i = 0; i < 8; i++){
-	mymcp.read(i,(id, value) => {
-		console.log("pin #" + id + " = " + value + "/1024");
-	});
-}
+mymcp.setresistance(0, 1000);
+mymcp.getsensorresistance(0, (pin, value) => {
+	console.log("resistance = " + value);
+});

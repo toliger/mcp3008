@@ -1,4 +1,4 @@
-export default class Pin{
+class Pin{
 	constructor(){
 		this.resistanceSensorType = ['temp'];
 		this.type = ['default'].concat(this.resistanceSensorType);
@@ -23,7 +23,8 @@ export default class Pin{
 		return (this.decimalvalue * this.Vref) / 1024;
 	}
 
-	get sensorResistance(){
+	getSensorResistance(){
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
 	}
 }
+module.export = Pin

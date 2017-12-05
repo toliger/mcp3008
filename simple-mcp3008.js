@@ -21,14 +21,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-import Gpio from 'onoff';
-import Pin from './class/Pin.mjs';
+var Gpio = require('onoff');
+var Pin = require('./class/Pin.js');
 let gpio = Gpio.Gpio;
 
-console.log(JSON.stringify(gpio));
 
-
-export default class mcp3008 extends Pin{
+class mcp3008 extends Pin{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
 		super();
 		this.clockpin    =    new gpio(clockpin,  'out' );
@@ -80,3 +78,5 @@ export default class mcp3008 extends Pin{
 	}
 
 }
+
+module.export = mcp3008

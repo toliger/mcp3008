@@ -28,6 +28,7 @@ let gpio = Gpio.Gpio;
 
 export default class mcp3008 extends Pin{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
+		super();
 		this.clockpin    =    new gpio(clockpin,  'out' );
 		this.mosipin     =    new gpio(mosipin,   'out' );
 		this.misopin     =    new gpio(misopin,   'in'  );

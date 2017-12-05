@@ -21,16 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-var Gpio = require('onoff').Gpio;
+import Gpio from 'onoff';
 import Pin from './class/Pin.js');
+let gpio = Gpio.Gpio;
 
 
 class mcp3008 extends Pin{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
-		this.clockpin    =    new Gpio(clockpin,  'out' );
-		this.mosipin     =    new Gpio(mosipin,   'out' );
-		this.misopin     =    new Gpio(misopin,   'in'  );
-		this.cspin       =    new Gpio(cspin,     'out' );
+		this.clockpin    =    new gpio(clockpin,  'out' );
+		this.mosipin     =    new gpio(mosipin,   'out' );
+		this.misopin     =    new gpio(misopin,   'in'  );
+		this.cspin       =    new gpio(cspin,     'out' );
 		this.Vref        =    Vref;
 	}
 

@@ -25,6 +25,8 @@ import Gpio from 'onoff';
 import Pin from './class/Pin.mjs';
 let gpio = Gpio.Gpio;
 
+console.log(JSON.stringify(gpio));
+
 
 export default class mcp3008 extends Pin{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){

@@ -22,14 +22,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 var Gpio = require('onoff').Gpio;
+import Pin from './class/Pin.js');
 
-class mcp3008{
+
+class mcp3008 extends Pin{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
 		this.clockpin    =    new Gpio(clockpin,  'out' );
 		this.mosipin     =    new Gpio(mosipin,   'out' );
 		this.misopin     =    new Gpio(misopin,   'in'  );
 		this.cspin       =    new Gpio(cspin,     'out' );
-		this.resistances =    [0, 0, 0, 0, 0, 0, 0, 0];
 		this.Vref        =    Vref;
 	}
 
@@ -74,20 +75,5 @@ class mcp3008{
 		cb(pin, this.readSync(pin));
 	}
 
-	getVoltage(value){
-		return (this.Vref * value) / 1024;
-	}
-
-	setresistance(pin, ohm){
-		this.resistances[pin] = ohm;
-	}
-
-	getsensorresistanceSync(pin){
-		return ((this.Vref * this.resistances[pin])/this.getVoltage(this.readSync(pin))) - this.resistances[pin];
-	}
-
-	getsensorresistance(pin, cb){
-		cb(pin, this.getsensorresistanceSync(pin));
-	}
 }
 module.exports = mcp3008

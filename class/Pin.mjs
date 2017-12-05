@@ -1,4 +1,4 @@
-export Pin{
+export class Pin{
 	constructor(){
 		this.resistanceSensorType = ['temp'];
 		this.type = ['default'].concat(this.resistanceSensorType);

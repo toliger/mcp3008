@@ -27,4 +27,3 @@ export Pin{
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
 	}
 }
-module.exports = Pin;

@@ -1,5 +1,3 @@
-import Pin from './class/Pin.mjs';
+import mcp3008 from './simple-mcp3008.mjs';
 
-var p = new Pin;
-
-console.log(JSON.stringify(Pin));
+var mc = new mcp3008;

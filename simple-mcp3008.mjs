@@ -26,7 +26,7 @@ import Pin from './class/Pin.mjs';
 let gpio = Gpio.Gpio;
 
 
-class mcp3008 extends Pin{
+export default class mcp3008 extends Pin{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
 		this.clockpin    =    new gpio(clockpin,  'out' );
 		this.mosipin     =    new gpio(mosipin,   'out' );

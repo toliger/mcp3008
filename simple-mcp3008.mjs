@@ -77,4 +77,3 @@ export default class mcp3008 extends Pin{
 	}
 
 }
-module.exports = mcp3008

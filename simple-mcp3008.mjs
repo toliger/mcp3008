@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import Gpio from 'onoff';
-import Pin from './class/Pin.mjs');
+import Pin from './class/Pin.mjs';
 let gpio = Gpio.Gpio;
 
 

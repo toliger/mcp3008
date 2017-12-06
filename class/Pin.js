@@ -33,9 +33,7 @@ class Pin extends Io{
 		this.resistance = 0;
 		this.decimalvalue = 0;
 		this.Vref = Vref;
-		this.resistancefunction = () =>{
-			return -1000;
-		}
+		this.resistancetab = [];
 	}
 
 	getDecimalValue(){
@@ -63,10 +61,17 @@ class Pin extends Io{
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
 	}
 
-	generateSensorResistanceFunction(tab){
-		this.resistancefunction = (ohmvalue) =>{
-			return -999
-		}
+	setResistanceTab(tab){
+		//::TODO sort table
+		this.resistancetab = tab;
 	}
-}
+
+	getCelciusDegre(){
+				var i = 0;
+				for(; i < this.resistancetab.length && this.resistance < this.resistancetab[i][1]; i++);
+				if(i < (this.resistancetab.length - 2)){
+					return (((this.resistance - Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1]))*(Math.max(this.resistancetab[i - 1][0],this.resistancetab[i][0])- Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0])))/ (Math.max(this.resistancetab[i - 1][1],this.resistancetab[i][1])- Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1])) + Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0]));
+				}
+				return -10000;
+	}
 module.exports = Pin

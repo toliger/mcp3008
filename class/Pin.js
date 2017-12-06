@@ -33,6 +33,9 @@ class Pin extends Io{
 		this.resistance = 0;
 		this.decimalvalue = 0;
 		this.Vref = Vref;
+		this.resistancefunction = () =>{
+			return -1000;
+		}
 	}
 
 	getDecimalValue(){
@@ -58,6 +61,12 @@ class Pin extends Io{
 
 	getSensorResistance(){
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
+	}
+
+	generateSensorResistanceFunction(tab){
+		this.resistancefunction = (ohmvalue) =>{
+			return -999
+		}
 	}
 }
 module.exports = Pin

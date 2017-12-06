@@ -1,2 +1,7 @@
 .DS_Store
+._*
+npm-debug.log
+.npmrc
+node_modules
+package-lock.json
 test.js

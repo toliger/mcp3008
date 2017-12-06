@@ -46,11 +46,6 @@ class Io{
 		res >>= 1;
 		return res;
 	}
-
-	read(pin, cb){
-		cb(pin, this.readSync(pin));
-	}
-
 }
 
 module.exports = Io

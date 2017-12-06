@@ -11,6 +11,11 @@ class Pin extends Io{
 		this.Vref = 3.3;
 	}
 
+	getDecimalValue(){
+		this.decimalvalue = super.readSync();
+		return this.decimalvalue;
+	}
+
 	setType(type){
 		if (this.type.indexOf(type) >= 0){
 			this.type = type;

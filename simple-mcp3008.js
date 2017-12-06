@@ -26,9 +26,8 @@ var Pin = require('./class/Pin.js');
 let gpio = Gpio.Gpio;
 
 
-class mcp3008 extends Pin{
+class mcp3008{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
-		super();
 		this.clockpin    =    new gpio(clockpin,  'out' );
 		this.mosipin     =    new gpio(mosipin,   'out' );
 		this.misopin     =    new gpio(misopin,   'in'  );

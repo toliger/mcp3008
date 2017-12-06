@@ -1,4 +1,6 @@
-class Pin{
+var Io = require('./Io.js');
+
+class Pin extends Io{
 	constructor(){
 		this.resistanceSensorType = ['temp'];
 		this.type = ['default'].concat(this.resistanceSensorType);

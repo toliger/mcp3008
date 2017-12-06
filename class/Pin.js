@@ -29,4 +29,4 @@ class Pin extends Io{
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
 	}
 }
-module.export = Pin
+module.exports = Pin

@@ -29,4 +29,4 @@ class mcp3008{
 	}
 }
 
-module.export = mcp3008
+module.exports = mcp3008

@@ -60,6 +60,7 @@ class Pin extends Io{
 	}
 
 	getSensorResistance(){
+		console.log(this.Vref + " fe fe f " + this.resistance + "    ee ef   " + this.getVoltage);
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
 	}
 

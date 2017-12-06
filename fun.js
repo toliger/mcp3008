@@ -12,7 +12,7 @@ var resistancetab = [	[-30, 173755],
 
 
 function getCelciusDegre(){
-			var resistance = 17000, i = 0;
+			var resistance = 13300, i = 0;
 			for(; i < resistancetab.length && resistance < resistancetab[i][1]; i++);
 			if(i < (resistancetab.length - 2)){
 				return (((resistance - Math.min(resistancetab[i - 1][1],resistancetab[i][1]))*(Math.max(resistancetab[i - 1][0],resistancetab[i][0])- Math.min(resistancetab[i - 1][0],resistancetab[i][0])))/ (Math.max(resistancetab[i - 1][1],resistancetab[i][1])- Math.min(resistancetab[i - 1][1],resistancetab[i][1])) + Math.min(resistancetab[i - 1][0],resistancetab[i][0]));

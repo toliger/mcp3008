@@ -67,10 +67,10 @@ class Pin extends Io{
 	}
 
 	getCelciusDegre(){
-				var i = 0;
-				for(; i < this.resistancetab.length && this.resistance < this.resistancetab[i][1]; i++);
+				var i = 0, sensor_resistance = getSensorResistance();
+				for(; i < this.resistancetab.length && sensor_resistance< this.resistancetab[i][1]; i++);
 				if(i < (this.resistancetab.length - 2)){
-					return (((this.resistance - Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1]))*(Math.max(this.resistancetab[i - 1][0],this.resistancetab[i][0])- Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0])))/ (Math.max(this.resistancetab[i - 1][1],this.resistancetab[i][1])- Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1])) + Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0]));
+					return (((sensor_resistance - Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1]))*(Math.max(this.resistancetab[i - 1][0],this.resistancetab[i][0])- Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0])))/ (Math.max(this.resistancetab[i - 1][1],this.resistancetab[i][1])- Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1])) + Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0]));
 				}
 				return -10000;
 	}

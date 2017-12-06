@@ -16,7 +16,7 @@ npm install simple-mcp3008
 # Usage
 
 ```js
-var mcp = require('./simple-mcp3008.js')(18,24,4,25,3.3);
+var mcp = require('simple-mcp3008')(18,24,4,25,3.3);
 
 for(var i = 0; i < 8; i++){
 	console.log("pin #" + i + " = " + mcp.pins[i].getDecimalValue() + "/1024");

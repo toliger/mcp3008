@@ -53,7 +53,7 @@ class Pin extends Io{
 	}
 
 	getVoltage(){
-		return (this.decimalvalue * this.Vref) / 1024;
+		return (this.getDecimalValue * this.Vref) / 1024;
 	}
 
 	getSensorResistance(){

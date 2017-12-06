@@ -32,7 +32,7 @@ class Pin extends Io{
 		this.type = ['default'].concat(this.resistanceSensorType);
 		this.resistance = 0;
 		this.decimalvalue = 0;
-		this.Vref = 3.3;
+		this.Vref = Vref;
 	}
 
 	getDecimalValue(){

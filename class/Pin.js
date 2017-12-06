@@ -60,7 +60,7 @@ class Pin extends Io{
 	getSensorResistance(){
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
 	}
-
+  
 	setResistanceTab(tab){
 		//::TODO sort table
 		this.resistancetab = tab;

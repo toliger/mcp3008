@@ -1,7 +1,9 @@
 var Io = require('./Io.js');
 
 class Pin extends Io{
-	constructor(){
+	constructor(clockpin, mosipin, misopin, cspin, Vref, pinid){
+		super(clockpin, mosipin, misopin, cspin, Vref);
+		this.id = pinid;
 		this.resistanceSensorType = ['temp'];
 		this.type = ['default'].concat(this.resistanceSensorType);
 		this.resistance = 0;

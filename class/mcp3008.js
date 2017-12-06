@@ -1,4 +1,4 @@
-var Pin = require('./class/Pin.js');
+var Pin = require('./Pin.js');
 
 class mcp3008{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){

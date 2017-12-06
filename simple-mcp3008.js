@@ -21,5 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+var mcp = require('./class/mcp3008.js');
 
-module.exports = require('./class/mcp3008.js');
+module.exports = (clockpin, mosipin, misopin, cspin, Vref) => {
+	return new mcp(clockpin, mosipin, misopin, cspin, Vref);
+}

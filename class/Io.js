@@ -1,3 +1,6 @@
+var Gpio = require('onoff');
+let gpio = Gpio.Gpio;
+
 class Io{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
 		this.clockpin    =    new gpio(clockpin,  'out' );

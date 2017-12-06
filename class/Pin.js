@@ -33,6 +33,7 @@ class Pin extends Io{
 		this.resistance = 0;
 		this.decimalvalue = 0;
 		this.Vref = Vref;
+		this.resistancetab = [];
 	}
 
 	getDecimalValue(){
@@ -47,17 +48,31 @@ class Pin extends Io{
 	}
 
 	setConstantResistance(resistance){
-		if (this.resistanceSensorType.indexOf(resistance) >= 0){
+		if (this.resistanceSensorType.indexOf(this.type) >= 0){
 			this.resistance = resistance;
 		}
 	}
 
 	getVoltage(){
-		return (this.decimalvalue * this.Vref) / 1024;
+		return (this.getDecimalValue() * this.Vref) / 1024;
 	}
 
 	getSensorResistance(){
 		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
+	}
+  
+	setResistanceTab(tab){
+		//::TODO sort table
+		this.resistancetab = tab;
+	}
+
+	getCelciusDegre(){
+				var i = 0, sensor_resistance = this.getSensorResistance();
+				for(; i < this.resistancetab.length && sensor_resistance< this.resistancetab[i][1]; i++);
+				if(i < (this.resistancetab.length - 2)){
+					return (((sensor_resistance - Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1]))*(Math.max(this.resistancetab[i - 1][0],this.resistancetab[i][0])- Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0])))/ (Math.max(this.resistancetab[i - 1][1],this.resistancetab[i][1])- Math.min(this.resistancetab[i - 1][1],this.resistancetab[i][1])) + Math.min(this.resistancetab[i - 1][0],this.resistancetab[i][0]));
+				}
+				return -10000;
 	}
 }
 module.exports = Pin

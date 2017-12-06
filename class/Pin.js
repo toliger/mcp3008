@@ -21,8 +21,43 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-var mcp = require('./class/mcp3008.js');
 
-module.exports = (clockpin, mosipin, misopin, cspin, Vref) => {
-	return new mcp(clockpin, mosipin, misopin, cspin, Vref);
+var Io = require('./Io.js');
+
+class Pin extends Io{
+	constructor(clockpin, mosipin, misopin, cspin, Vref, pinid){
+		super(clockpin, mosipin, misopin, cspin, Vref);
+		this.id = pinid;
+		this.resistanceSensorType = ['temp'];
+		this.type = ['default'].concat(this.resistanceSensorType);
+		this.resistance = 0;
+		this.decimalvalue = 0;
+		this.Vref = Vref;
+	}
+
+	getDecimalValue(){
+		this.decimalvalue = super.readSync(this.id);
+		return this.decimalvalue;
+	}
+
+	setType(type){
+		if (this.type.indexOf(type) >= 0){
+			this.type = type;
+		}
+	}
+
+	setConstantResistance(resistance){
+		if (this.resistanceSensorType.indexOf(resistance) >= 0){
+			this.resistance = resistance;
+		}
+	}
+
+	getVoltage(){
+		return (this.decimalvalue * this.Vref) / 1024;
+	}
+
+	getSensorResistance(){
+		return ((this.Vref * this.resistance)/this.getVoltage()) - this.resistance;
+	}
 }
+module.exports = Pin

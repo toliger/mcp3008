@@ -74,4 +74,5 @@ class Pin extends Io{
 				}
 				return -10000;
 	}
+}
 module.exports = Pin

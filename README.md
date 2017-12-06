@@ -24,7 +24,7 @@ for(var i = 0; i < 8; i++){
 }
 ```
 ```js
-var mcp = require('./simple-mcp3008.js')(18,24,4,25,3.3);
+var mcp = require('simple-mcp3008.js')(18,24,4,25,3.3);
 var temp_pin = mcp.pins[0];
 
 /* MJSTS-103-3950-1-600-3D  [celcius degre, ohm]*/

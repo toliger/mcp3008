@@ -2,6 +2,7 @@ var Pin = require('./Pin.js');
 
 class mcp3008{
 	constructor(clockpin, mosipin, misopin, cspin, Vref){
+		console.log("Vref = " + Vref);
 		this.pins = [	new Pin(clockpin, mosipin, misopin, cspin, Vref, 0),
 									new Pin(clockpin, mosipin, misopin, cspin, Vref, 1),
 									new Pin(clockpin, mosipin, misopin, cspin, Vref, 2),

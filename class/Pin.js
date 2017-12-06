@@ -36,7 +36,7 @@ class Pin extends Io{
 	}
 
 	getDecimalValue(){
-		this.decimalvalue = super.readSync();
+		this.decimalvalue = super.readSync(this.id);
 		return this.decimalvalue;
 	}
 

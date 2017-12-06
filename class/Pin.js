@@ -47,7 +47,7 @@ class Pin extends Io{
 	}
 
 	setConstantResistance(resistance){
-		if (this.resistanceSensorType.indexOf(resistance) >= 0){
+		if (this.resistanceSensorType.indexOf(this.type) >= 0){
 			this.resistance = resistance;
 		}
 	}

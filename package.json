@@ -1,6 +1,6 @@
 {
   "name": "simple-mcp3008",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": " MCP3008 SPI analog to digital conversion",
   "main": "simple-mcp3008.js",
   "scripts": {

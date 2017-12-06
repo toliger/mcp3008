@@ -16,15 +16,9 @@ npm install simple-mcp3008
 # Usage
 
 ```js
-// (SPICLK, SPIMISO, SPIMOSI, SPICS);
-var mcp = require('simple-mcp3008');
-var mymcp = new mcp(18,24,4,25);
+var mcp = require('./simple-mcp3008.js')(18,24,4,25,3.3);
 
 for(var i = 0; i < 8; i++){
-	mymcp.read(i,(id, value) => {
-		console.log("pin #" + id + " = " + value + "/1024");
-	});
+	console.log("pin #" + i + " = " + mcp.pins[i].getDecimalValue() + "/1024");
 }
-
-console.log(mymcp.readSync(0));
 ```

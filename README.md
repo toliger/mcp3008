@@ -17,6 +17,7 @@ npm install simple-mcp3008
 
 
 ```js
+// (SPICLK, SPIMISO, SPIMOSI, SPICS, Voltage)
 var mcp = require('simple-mcp3008')(18,24,4,25,3.3);
 
 for(var i = 0; i < 8; i++){
